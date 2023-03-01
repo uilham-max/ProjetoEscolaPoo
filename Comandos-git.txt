@@ -1,0 +1,19 @@
+git --version -> mostra a versao do git
+
+git init -> cria um repositorio git vazio
+
+git add . -> envia todos os arquivos da pasta para o stage
+
+git status -> mostra os arquivos que estao no stage
+
+git config --global user.email uilhamgoncalves@gmail.com
+
+git config --glogal user.name uilham-max
+
+git commit -m "primeiro commit"
+
+git branch -M "main"
+
+git remote add origin httphttps://github.com/uilham-max/ProjetoEscolaPoo.git
+
+git push -u origin main

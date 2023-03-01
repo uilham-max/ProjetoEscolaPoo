@@ -23,11 +23,11 @@ public class CadastroAluno {
 
 	private static JFrame frmCadastro;
 	private static JTextField textFieldNome;
-	private JTextField textFieldIdade;
-	private JTextField textFieldCpf;
-	private JTextField textFieldDataMat;
-	private JTextField textFieldEscola;
-	private JTextField textFieldSemestre;
+	private static JTextField textFieldIdade;
+	private static JTextField textFieldCpf;
+	private static JTextField textFieldDataMat;
+	private static JTextField textFieldEscola;
+	private static JTextField textFieldSemestre;
 	private static JTextField textFieldNumeroDedisciplinas;
 	private JLabel lblIdade;
 	private JLabel lblCpf;
@@ -172,10 +172,10 @@ public class CadastroAluno {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				textFieldNome.setText("Uilham33 de Oliveira");
+				textFieldNome.setText("Uilham de Oliveira");
 				textFieldIdade.setText("18");
 				textFieldCpf.setText("00505131092");
-				textFieldDataMat.setText("22/02/2023");
+				textFieldDataMat.setText("02/03/2023");
 				textFieldEscola.setText("Jose de Abreu");
 				textFieldSemestre.setText("2");
 				textFieldNumeroDedisciplinas.setText("6");
@@ -195,8 +195,8 @@ public class CadastroAluno {
 		return textFieldNome;
 	}
 
-	public static void setTextFieldNome(String text) {
-		textFieldNome.setText(text);
+	public static void setTextFieldNome(JTextField textFieldNome) {
+		CadastroAluno.textFieldNome = textFieldNome;
 	}
 	
 	public static JFrame getFrmCadastro() {
@@ -207,14 +207,52 @@ public class CadastroAluno {
 		CadastroAluno.frmCadastro = frmCadastro;
 	}
 
-	
-
 	public static JTextField getTextFieldNumeroDedisciplinas() {
 		return textFieldNumeroDedisciplinas;
 	}
 
 	public static void setTextFieldNumeroDedisciplinas(JTextField textFieldNumeroDedisciplinas) {
 		CadastroAluno.textFieldNumeroDedisciplinas = textFieldNumeroDedisciplinas;
+	}
+
+	public static JTextField getTextFieldIdade() {
+		return textFieldIdade;
+	}
+
+	public static void setTextFieldIdade(JTextField textFieldIdade) {
+		CadastroAluno.textFieldIdade = textFieldIdade;
+	}
+
+	public static JTextField getTextFieldCpf() {
+		return textFieldCpf;
+	}
+
+	public static void setTextFieldCpf(JTextField textFieldCpf) {
+		CadastroAluno.textFieldCpf = textFieldCpf;
+	}
+
+	public static JTextField getTextFieldDataMat() {
+		return textFieldDataMat;
+	}
+
+	public static void setTextFieldDataMat(JTextField textFieldDataMat) {
+		CadastroAluno.textFieldDataMat = textFieldDataMat;
+	}
+
+	public static JTextField getTextFieldEscola() {
+		return textFieldEscola;
+	}
+
+	public static void setTextFieldEscola(JTextField textFieldEscola) {
+		CadastroAluno.textFieldEscola = textFieldEscola;
+	}
+
+	public static JTextField getTextFieldSemestre() {
+		return textFieldSemestre;
+	}
+
+	public static void setTextFieldSemestre(JTextField textFieldSemestre) {
+		CadastroAluno.textFieldSemestre = textFieldSemestre;
 	}
 
 	

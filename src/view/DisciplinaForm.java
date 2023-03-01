@@ -48,9 +48,9 @@ public class DisciplinaForm {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNomeDisciplina = new JLabel("Disciplina:");
+		JLabel lblNomeDisciplina = new JLabel("Nome da Disciplina:");
 		lblNomeDisciplina.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNomeDisciplina.setBounds(147, 128, 106, 31);
+		lblNomeDisciplina.setBounds(38, 128, 215, 31);
 		frame.getContentPane().add(lblNomeDisciplina);
 		
 		textFieldNomeDisciplina = new JTextField();

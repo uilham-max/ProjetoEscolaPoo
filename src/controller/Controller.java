@@ -1,35 +1,51 @@
 package controller;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import view.*;
 import model.*;
-import model.Disciplina;
 
 public class Controller  {
+	
+	
 
 	
 	public static void validaAluno() {
 		Aluno aluno = new Aluno();
 		
-		//nesse ponto eu consegui resolver o problema de acessar os atributos da classe CadastroAluno
-		// acho melhor definir getter e setter para os atributos da classe CadastroAluno
-//		aluno.setNumeroDeDisciplinas(Integer.valueOf(CadastroAluno.getTextFieldNumeroDedisciplinas().getText()) );
-		
-		CadastroAluno.setTextFieldNome("uilha343453");
 		aluno.setNome(validaNome(CadastroAluno.getTextFieldNome().getText()));
+		aluno.setIdade(Integer.valueOf(validaIdade(CadastroAluno.getTextFieldIdade().getText())) );
+		aluno.setNumCPF(Long.valueOf(validaCpf(CadastroAluno.getTextFieldCpf().getText())) );
+		aluno.setDataMatricula( validaData(CadastroAluno.getTextFieldDataMat().getText()) );
+		aluno.setNomeEscola(CadastroAluno.getTextFieldEscola().getText());
+		aluno.setSemestreMatricula(Integer.valueOf(CadastroAluno.getTextFieldSemestre().getText()));
+		aluno.setNumeroDeDisciplinas(Integer.valueOf(CadastroAluno.getTextFieldNumeroDedisciplinas().getText()) );
+
+
+		
+		if(aluno.getNome() != null && aluno.getIdade() != -1 && aluno.getNumCPF() != -1 && aluno.getNomeEscola() != null 
+				&& aluno.getSemestreMatricula() != -1 && aluno.getNumeroDeDisciplinas() != -1 && aluno.getDataMatricula() != null) {
+			DisciplinaForm.main(null);
+			CadastroAluno.getFrmCadastro().dispose();
+		}		
 		
 		
-//		DisciplinaForm.main(null);
-//		CadastroAluno.getFrmCadastro().dispose();
 		
-//		if(!isBloqueado()) {
-//			Disciplina.main(null);
-//			frmCadastro.dispose();	
-//		}		
 		
+	}
+	
+	//valida data
+	public static String validaData(String data) {
+		if(data.equals(Aluno.getDataFormatada(new Date()))) {
+			return data;
+		}
+		JOptionPane.showInternalMessageDialog(null, "Data invalida." );
+		return null;
 	}
 	
 	//valida nome
@@ -46,7 +62,7 @@ public class Controller  {
 		public static int validaIdade(String numero) {
 			if(numero.matches("[0-9]{1,2}")) {
 				int idade = Integer.valueOf(numero);
-				if(idade > 18 && idade < 100) {
+				if(idade >= 18 && idade < 100) {
 					return idade;
 				}
 			}
@@ -97,8 +113,6 @@ public class Controller  {
 				JOptionPane.showMessageDialog(null, "Quantidade de disciplinas invalido.");
 				return -1;
 		}
-		
-		
 	
 
 }

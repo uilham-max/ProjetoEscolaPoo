@@ -6,7 +6,9 @@ import java.util.Date;
 
 public class Aluno extends Pessoa implements CalculaMedia{
 
-	private Date dataMatricula;
+	private String dataMatricula;
+	
+
 	private String nomeEscola;
 	private int semestreMatricula;
 	private ArrayList<Disciplina> disciplina;
@@ -17,7 +19,7 @@ public class Aluno extends Pessoa implements CalculaMedia{
 		super();
 	}	
 	
-	public Aluno(String nome, int idade, long numCPF, Date dataMatricula, String nomeEscola, int semestreMatricula,
+	public Aluno(String nome, int idade, long numCPF, String dataMatricula, String nomeEscola, int semestreMatricula,
 			ArrayList<Disciplina> disciplina, int numeroDeDisciplinas) {
 		super(nome, idade, numCPF);
 		this.dataMatricula = dataMatricula;
@@ -57,14 +59,20 @@ public class Aluno extends Pessoa implements CalculaMedia{
 		return Situacao.REPROVADO;
 	}
 	
+//	public String getDataMatricula() {
+//		return getDataFormatada(this.dataMatricula);
+//	}
+//
+//	public void setDataMatricula(Date dataMatricula) {
+//		this.dataMatricula = dataMatricula;
+//	}
 	public String getDataMatricula() {
-		return getDataFormatada(this.dataMatricula);
+		return dataMatricula;
 	}
 
-	public void setDataMatricula(Date dataMatricula) {
+	public void setDataMatricula(String dataMatricula) {
 		this.dataMatricula = dataMatricula;
 	}
-
 	public String getNomeEscola() {
 		return nomeEscola;
 	}
@@ -100,7 +108,7 @@ public class Aluno extends Pessoa implements CalculaMedia{
 	@Override
 	public String toString() {
 		return "\n----------\n"+"\nnome=" + nome +  "\nidade=" + idade + "\nCPF=" + numCPF + "\nNumero de discip." + numeroDeDisciplinas+ 
-				"\ndataMatricula=" + getDataFormatada(dataMatricula) + "\nnomeEscola=" + nomeEscola + 
+				"\ndataMatricula=" + /*getDataFormatada(dataMatricula)*/dataMatricula + "\nnomeEscola=" + nomeEscola + 
 				"\nsemestreMatricula=" + semestreMatricula +""+ disciplina +
 				"\nmedia geral = " + calculaMediaGeral() +
 				"\nsituacao=" + getSituacao();

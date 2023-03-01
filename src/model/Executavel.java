@@ -124,7 +124,7 @@ public class Executavel {
 		aluno1.setNomeEscola("IFSul-Bage");
 		aluno1.setDisciplina(listaDisciplinasSegundoSemestre);
 		aluno1.setIdade(39);
-		aluno1.setDataMatricula(new Date());
+		aluno1.setDataMatricula(Aluno.getDataFormatada(new Date()));
 		aluno1.setSemestreMatricula(2);
 		aluno1.getDisciplina().get(0).setNota(not1);
 		aluno1.getDisciplina().get(1).setNota(not3);
@@ -141,7 +141,7 @@ public class Executavel {
 		aluno2.setNomeEscola("IFSul-Bage");
 		aluno2.setDisciplina(listaDisciplinasSegundoSemestre);
 		aluno2.setIdade(20);
-		aluno2.setDataMatricula(new Date());
+		aluno2.setDataMatricula(Aluno.getDataFormatada(new Date()));
 		aluno2.setSemestreMatricula(2);
 		aluno2.getDisciplina().get(0).setNota(not3);
 		aluno2.getDisciplina().get(1).setNota(not4);
@@ -158,7 +158,7 @@ public class Executavel {
 		aluno3.setNomeEscola("IFSul-Bage");
 		aluno3.setDisciplina(listaDisciplinasSegundoSemestre);
 		aluno3.setIdade(22);
-		aluno3.setDataMatricula(new Date());
+		aluno3.setDataMatricula(Aluno.getDataFormatada(new Date()));
 		aluno3.setSemestreMatricula(2);
 		aluno3.getDisciplina().get(0).setNota(not2);
 		aluno3.getDisciplina().get(1).setNota(not5);

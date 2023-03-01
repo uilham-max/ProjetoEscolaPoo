@@ -9,12 +9,13 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.nio.file.SecureDirectoryStream;
 
 public class DisciplinaForm {
 
-	private JFrame frame;
-	private JTextField textFieldNomeDisciplina;
-	private JTextField textFieldNumeroNotas;
+	private static JFrame frame;
+	private static JTextField textFieldNomeDisciplina;
+	private static JTextField textFieldNumeroNotas;
 
 	/**
 	 * Launch the application.
@@ -63,8 +64,9 @@ public class DisciplinaForm {
 		botaoProximo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				
+
+				textFieldNomeDisciplina.setText("POO");
+				textFieldNumeroNotas.setText("4");
 				
 			}
 		});
@@ -82,5 +84,29 @@ public class DisciplinaForm {
 		textFieldNumeroNotas.setColumns(10);
 		textFieldNumeroNotas.setBounds(263, 170, 200, 30);
 		frame.getContentPane().add(textFieldNumeroNotas);
+	}
+
+	public static JFrame getFrame() {
+		return frame;
+	}
+
+	public static void setFrame(JFrame frame) {
+		DisciplinaForm.frame = frame;
+	}
+
+	public static JTextField getTextFieldNomeDisciplina() {
+		return textFieldNomeDisciplina;
+	}
+
+	public static void setTextFieldNomeDisciplina(JTextField textFieldNomeDisciplina) {
+		DisciplinaForm.textFieldNomeDisciplina = textFieldNomeDisciplina;
+	}
+
+	public static JTextField getTextFieldNumeroNotas() {
+		return textFieldNumeroNotas;
+	}
+
+	public static void setTextFieldNumeroNotas(JTextField textFieldNumeroNotas) {
+		DisciplinaForm.textFieldNumeroNotas = textFieldNumeroNotas;
 	}
 }

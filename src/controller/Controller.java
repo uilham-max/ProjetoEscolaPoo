@@ -1,7 +1,6 @@
 package controller;
 
-
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -9,7 +8,6 @@ import javax.swing.JTextField;
 
 import view.*;
 import model.*;
-
 public class Controller  {
 	
 	
@@ -34,7 +32,20 @@ public class Controller  {
 			CadastroAluno.getFrmCadastro().dispose();
 		}		
 		
+		// esta é a parte de pegar o nome da disciplina e a quantidade de notas
+		// instanciar uma lista de disciplinas com o numero de disciplinas informado pelo usuario
 		
+//		ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
+//		ArrayList<Nota> notas = new ArrayList<Nota>();
+		Disciplina disciplina = null;
+		
+		for(int i=0; i<aluno.getNumeroDeDisciplinas(); i++) {
+			disciplina.setNomeDisciplina(validaNome(DisciplinaForm.getTextFieldNomeDisciplina().getText()));
+			disciplina.setQuantidadeDeNotas(Integer.valueOf(validaSemestre(DisciplinaForm.getTextFieldNumeroNotas().getText())));
+		}
+		
+		// apos isso deve aparecer a view para o usuario informar as notas da disciplina
+		// usando um for com o numero de notas
 		
 		
 	}

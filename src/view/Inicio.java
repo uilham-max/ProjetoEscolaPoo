@@ -48,7 +48,7 @@ public class Inicio {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				CadastroAluno.main(null);
+				AlunoForm.main(null);
 				frame.dispose();
 			}
 		});

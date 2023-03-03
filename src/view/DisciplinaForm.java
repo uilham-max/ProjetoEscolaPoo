@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import controller.ControllerAluno;
+
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -66,7 +69,8 @@ public class DisciplinaForm {
 			public void mouseClicked(MouseEvent e) {
 
 				textFieldNomeDisciplina.setText("POO");
-				textFieldNumeroNotas.setText("4");
+				textFieldNumeroNotas.setText("3");
+				ControllerAluno.criaDisciplina();
 				
 			}
 		});

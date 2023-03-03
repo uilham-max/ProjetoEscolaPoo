@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import controller.Controller;
+import controller.ControllerAluno;
 
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
@@ -19,7 +19,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
 
-public class CadastroAluno {
+public class AlunoForm {
 
 	private static JFrame frmCadastro;
 	private static JTextField textFieldNome;
@@ -45,7 +45,7 @@ public class CadastroAluno {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CadastroAluno window = new CadastroAluno();
+					AlunoForm window = new AlunoForm();
 					window.frmCadastro.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,7 +57,7 @@ public class CadastroAluno {
 	/**
 	 * Create the application.
 	 */
-	public CadastroAluno() {
+	public AlunoForm() {
 		initialize();
 	}
 
@@ -180,7 +180,7 @@ public class CadastroAluno {
 				textFieldSemestre.setText("2");
 				textFieldNumeroDedisciplinas.setText("6");
 			
-				Controller.validaAluno();
+				ControllerAluno.criaAluno();
 			}
 		});
 		botaoProximo.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -196,7 +196,7 @@ public class CadastroAluno {
 	}
 
 	public static void setTextFieldNome(JTextField textFieldNome) {
-		CadastroAluno.textFieldNome = textFieldNome;
+		AlunoForm.textFieldNome = textFieldNome;
 	}
 	
 	public static JFrame getFrmCadastro() {
@@ -204,7 +204,7 @@ public class CadastroAluno {
 	}
 
 	public static void setFrmCadastro(JFrame frmCadastro) {
-		CadastroAluno.frmCadastro = frmCadastro;
+		AlunoForm.frmCadastro = frmCadastro;
 	}
 
 	public static JTextField getTextFieldNumeroDedisciplinas() {
@@ -212,7 +212,7 @@ public class CadastroAluno {
 	}
 
 	public static void setTextFieldNumeroDedisciplinas(JTextField textFieldNumeroDedisciplinas) {
-		CadastroAluno.textFieldNumeroDedisciplinas = textFieldNumeroDedisciplinas;
+		AlunoForm.textFieldNumeroDedisciplinas = textFieldNumeroDedisciplinas;
 	}
 
 	public static JTextField getTextFieldIdade() {
@@ -220,7 +220,7 @@ public class CadastroAluno {
 	}
 
 	public static void setTextFieldIdade(JTextField textFieldIdade) {
-		CadastroAluno.textFieldIdade = textFieldIdade;
+		AlunoForm.textFieldIdade = textFieldIdade;
 	}
 
 	public static JTextField getTextFieldCpf() {
@@ -228,7 +228,7 @@ public class CadastroAluno {
 	}
 
 	public static void setTextFieldCpf(JTextField textFieldCpf) {
-		CadastroAluno.textFieldCpf = textFieldCpf;
+		AlunoForm.textFieldCpf = textFieldCpf;
 	}
 
 	public static JTextField getTextFieldDataMat() {
@@ -236,7 +236,7 @@ public class CadastroAluno {
 	}
 
 	public static void setTextFieldDataMat(JTextField textFieldDataMat) {
-		CadastroAluno.textFieldDataMat = textFieldDataMat;
+		AlunoForm.textFieldDataMat = textFieldDataMat;
 	}
 
 	public static JTextField getTextFieldEscola() {
@@ -244,7 +244,7 @@ public class CadastroAluno {
 	}
 
 	public static void setTextFieldEscola(JTextField textFieldEscola) {
-		CadastroAluno.textFieldEscola = textFieldEscola;
+		AlunoForm.textFieldEscola = textFieldEscola;
 	}
 
 	public static JTextField getTextFieldSemestre() {
@@ -252,7 +252,7 @@ public class CadastroAluno {
 	}
 
 	public static void setTextFieldSemestre(JTextField textFieldSemestre) {
-		CadastroAluno.textFieldSemestre = textFieldSemestre;
+		AlunoForm.textFieldSemestre = textFieldSemestre;
 	}
 
 	

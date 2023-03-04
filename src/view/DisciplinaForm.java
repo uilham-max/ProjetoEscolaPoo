@@ -18,7 +18,6 @@ public class DisciplinaForm {
 
 	private static JFrame frame;
 	private static JTextField textFieldNomeDisciplina;
-	private static JTextField textFieldNumeroNotas;
 
 	/**
 	 * Launch the application.
@@ -68,8 +67,8 @@ public class DisciplinaForm {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				textFieldNomeDisciplina.setText("POO");
-				textFieldNumeroNotas.setText("3");
+//				textFieldNomeDisciplina.setText("POO");
+				
 				ControllerAluno.criaDisciplina();
 				
 			}
@@ -77,17 +76,6 @@ public class DisciplinaForm {
 		botaoProximo.setFont(new Font("Tahoma", Font.BOLD, 15));
 		botaoProximo.setBounds(263, 246, 150, 40);
 		frame.getContentPane().add(botaoProximo);
-		
-		JLabel lblNumeroNotas = new JLabel("N\u00BA de Notas:");
-		lblNumeroNotas.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNumeroNotas.setBounds(127, 169, 126, 31);
-		frame.getContentPane().add(lblNumeroNotas);
-		
-		textFieldNumeroNotas = new JTextField();
-		textFieldNumeroNotas.setFont(new Font("Dialog", Font.BOLD, 15));
-		textFieldNumeroNotas.setColumns(10);
-		textFieldNumeroNotas.setBounds(263, 170, 200, 30);
-		frame.getContentPane().add(textFieldNumeroNotas);
 	}
 
 	public static JFrame getFrame() {
@@ -106,11 +94,5 @@ public class DisciplinaForm {
 		DisciplinaForm.textFieldNomeDisciplina = textFieldNomeDisciplina;
 	}
 
-	public static JTextField getTextFieldNumeroNotas() {
-		return textFieldNumeroNotas;
-	}
-
-	public static void setTextFieldNumeroNotas(JTextField textFieldNumeroNotas) {
-		DisciplinaForm.textFieldNumeroNotas = textFieldNumeroNotas;
-	}
+	
 }

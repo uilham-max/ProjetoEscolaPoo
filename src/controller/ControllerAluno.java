@@ -8,43 +8,60 @@ import view.*;
 import model.*;
 public class ControllerAluno  {
 	
+	private static Aluno aluno;
+	private static ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+	
 	// metodo que cria as notas do aluno
 	public static ArrayList<Nota> criaNota() {
+		
+		NotaForm.main(null);
 		Nota notas = new Nota();
 		ArrayList<Nota> ListaDeNotas = new ArrayList<Nota>();
 		float[] arrayDeNotas = null;
 		
-		for(int i=1; i<4; i++ ) { // NotaForm deve passar as notas 
-			arrayDeNotas[i] = Float.valueOf(validaInteiroMenorQueDez(NotaForm.getTextFieldNota().getText()));
-		}
+		arrayDeNotas[0] = Float.valueOf(validaInteiroMenorQueDez(NotaForm.getTextFieldNota1().getText()));
+		arrayDeNotas[1] = Float.valueOf(validaInteiroMenorQueDez(NotaForm.getTextFieldNota2().getText()));
+		arrayDeNotas[2] = Float.valueOf(validaInteiroMenorQueDez(NotaForm.getTextFieldNota3().getText()));
 		
 		notas.setNota(arrayDeNotas);
 		ListaDeNotas.add(notas);
+		
+		NotaForm.getFrame().dispose();
 		return ListaDeNotas;
+		
+//		alunos.get(0).getDisciplina().get(0).getNota().get(0).getMediaNotas();
 	}
 	
 	// metodo que cria as disciplinas
 	public static void criaDisciplina() {
+
 		Disciplina disciplina = new Disciplina();
 		ArrayList<Disciplina> listaDeDisciplina = new ArrayList<Disciplina>();
-		int numeroDeNotas = Integer.valueOf(DisciplinaForm.getTextFieldNumeroNotas().getText());
 		
-		for(int i=1; i<numeroDeNotas; i++) {
-			// nome da disciplina
-			disciplina.setNomeDisciplina( validaNome(DisciplinaForm.getTextFieldNomeDisciplina().getText()) );
-			// chama o metodo pegar notas para pegar o numero de notas informado pelo usuario
-			// a tela DIsciplinaForm deve ser fechada
-			// a tela NotaForm deve ser aberta
-			disciplina.setNota(criaNota());
+		for(int i=1; i<Integer.valueOf(AlunoForm.getTextFieldNumeroDedisciplinas().getText()); i++) {
+			
+			disciplina.setNomeDisciplina( validaDisciplina(DisciplinaForm.getTextFieldNomeDisciplina().getText())) ;
+			
+			if(disciplina.getNomeDisciplina() != null) {
+				NotaForm.main(null);
+//				disciplina.setNota(criaNota());
+//				listaDeDisciplina.add(disciplina);
+			}
+			
+			
+			
+			
 		}
+
+		aluno.setDisciplina(listaDeDisciplina);
 		// nesta parte devo chamar a view MostrarDados
+		MostrarDados.main(null);
+		DisciplinaForm.getFrame().dispose();
 	}
 	
 	// metodo que cria o Aluno
 	public static void criaAluno() {
-		
-		Aluno aluno = new Aluno();
-		ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+		aluno = new Aluno();
 		
 		aluno.setNome(validaNome(AlunoForm.getTextFieldNome().getText()));
 		aluno.setIdade(Integer.valueOf(validaIdade(AlunoForm.getTextFieldIdade().getText())) );
@@ -56,8 +73,10 @@ public class ControllerAluno  {
 		
 		if(aluno.getNome() != null && aluno.getIdade() != -1 && aluno.getNumCPF() != -1 && aluno.getNomeEscola() != null 
 				&& aluno.getSemestreMatricula() != -1 && aluno.getNumeroDeDisciplinas() != -1 && aluno.getDataMatricula() != null) {
+			
 			DisciplinaForm.main(null);
 			AlunoForm.getFrmCadastro().dispose();
+//			criaDisciplina();
 		}		
 		
 		// e... quando tudo tiver dado certo o aluno será adicionado na pilha
@@ -84,6 +103,16 @@ public class ControllerAluno  {
 				return null;
 			}
 		}
+		
+		//valida disciplina
+				public static String validaDisciplina(String nome) {
+					if(nome.matches("^(?:[\\p{Lu}&&[\\p{IsLatin}]])(?:(?:')?(?:[\\p{Ll}&&[\\p{IsLatin}]]))+(?:\\-(?:[\\p{Lu}&&[\\p{IsLatin}]])(?:(?:')?(?:[\\p{Ll}&&[\\p{IsLatin}]]))+)*(?: (?:(?:e|y|de(?:(?: la| las| lo| los))?|do|dos|da|das|del|van|von|bin|le) )?(?:(?:(?:d'|D'|O'|Mc|Mac|al\\-))?(?:[\\p{Lu}&&[\\p{IsLatin}]])(?:(?:')?(?:[\\p{Ll}&&[\\p{IsLatin}]]))+|(?:[\\p{Lu}&&[\\p{IsLatin}]])(?:(?:')?(?:[\\p{Ll}&&[\\p{IsLatin}]]))+(?:\\-(?:[\\p{Lu}&&[\\p{IsLatin}]])(?:(?:')?(?:[\\p{Ll}&&[\\p{IsLatin}]]))+)*))+(?: (?:Jr\\.|II|III|IV))?$")) {
+						return nome;
+					} else {
+						JOptionPane.showMessageDialog(null, "Nome invalido.");
+						return null;
+					}
+				}
 		
 		//valida idade
 		public static int validaIdade(String numero) {

@@ -9,10 +9,12 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MostrarDados {
 
-	private JFrame frame;
+	private static JFrame frame;
 
 	/**
 	 * Launch the application.
@@ -47,6 +49,10 @@ public class MostrarDados {
 		frame.getContentPane().setLayout(null);
 		
 		JComboBox comboBoxAlunos = new JComboBox();
+		comboBoxAlunos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		comboBoxAlunos.setBounds(73, 92, 251, 78);
 		frame.getContentPane().add(comboBoxAlunos);
 		
@@ -65,6 +71,12 @@ public class MostrarDados {
 		frame.getContentPane().add(comboBoxProfessores);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Inicio.main(null);
+				MostrarDados.getFrame().dispose();
+			}
+		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnVoltar.setBounds(310, 426, 150, 40);
 		frame.getContentPane().add(btnVoltar);
@@ -72,5 +84,13 @@ public class MostrarDados {
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(76, 193, 647, 217);
 		frame.getContentPane().add(textArea);
+	}
+
+	public static JFrame getFrame() {
+		return frame;
+	}
+
+	public static void setFrame(JFrame frame) {
+		MostrarDados.frame = frame;
 	}
 }

@@ -16,8 +16,10 @@ import java.awt.event.MouseEvent;
 public class NotaForm {
 
 	private static JFrame frame;
-	private static JTextField textFieldNota;
-
+	private static JTextField textFieldNota1;
+	public static JLabel lblNota1;
+	private static JTextField textFieldNota2;
+	private static JTextField textFieldNota3;
 	/**
 	 * Launch the application.
 	 */
@@ -50,16 +52,16 @@ public class NotaForm {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNota = new JLabel("Nota[]:");
-		lblNota.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNota.setBounds(212, 120, 72, 31);
-		frame.getContentPane().add(lblNota);
+		lblNota1 = new JLabel("Nota 1:");
+		lblNota1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNota1.setBounds(211, 120, 73, 31);
+		frame.getContentPane().add(lblNota1);
 		
-		textFieldNota = new JTextField();
-		textFieldNota.setFont(new Font("Dialog", Font.BOLD, 15));
-		textFieldNota.setColumns(10);
-		textFieldNota.setBounds(294, 122, 72, 30);
-		frame.getContentPane().add(textFieldNota);
+		textFieldNota1 = new JTextField();
+		textFieldNota1.setFont(new Font("Dialog", Font.BOLD, 15));
+		textFieldNota1.setColumns(10);
+		textFieldNota1.setBounds(294, 122, 72, 30);
+		frame.getContentPane().add(textFieldNota1);
 		
 		JButton botaoProximo = new JButton("Pr\u00F3ximo");
 		botaoProximo.addMouseListener(new MouseAdapter() {
@@ -71,8 +73,30 @@ public class NotaForm {
 			}
 		});
 		botaoProximo.setFont(new Font("Tahoma", Font.BOLD, 15));
-		botaoProximo.setBounds(216, 187, 150, 40);
+		botaoProximo.setBounds(216, 272, 150, 40);
 		frame.getContentPane().add(botaoProximo);
+		
+		JLabel lblNota2 = new JLabel("Nota 2:");
+		lblNota2.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNota2.setBounds(211, 161, 73, 31);
+		frame.getContentPane().add(lblNota2);
+		
+		textFieldNota2 = new JTextField();
+		textFieldNota2.setFont(new Font("Dialog", Font.BOLD, 15));
+		textFieldNota2.setColumns(10);
+		textFieldNota2.setBounds(294, 163, 72, 30);
+		frame.getContentPane().add(textFieldNota2);
+		
+		JLabel lblNota3 = new JLabel("Nota 3:");
+		lblNota3.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNota3.setBounds(211, 202, 73, 31);
+		frame.getContentPane().add(lblNota3);
+		
+		textFieldNota3 = new JTextField();
+		textFieldNota3.setFont(new Font("Dialog", Font.BOLD, 15));
+		textFieldNota3.setColumns(10);
+		textFieldNota3.setBounds(294, 204, 72, 30);
+		frame.getContentPane().add(textFieldNota3);
 	}
 
 	public static JFrame getFrame() {
@@ -83,11 +107,27 @@ public class NotaForm {
 		NotaForm.frame = frame;
 	}
 
-	public static JTextField getTextFieldNota() {
-		return textFieldNota;
+	public static JTextField getTextFieldNota1() {
+		return textFieldNota1;
 	}
 
-	public static void setTextFieldNota(JTextField textFieldNota) {
-		NotaForm.textFieldNota = textFieldNota;
+	public static void setTextFieldNota1(JTextField textFieldNota) {
+		NotaForm.textFieldNota1 = textFieldNota;
+	}
+
+	public static JTextField getTextFieldNota2() {
+		return textFieldNota2;
+	}
+
+	public static void setTextFieldNota2(JTextField textFieldNota2) {
+		NotaForm.textFieldNota2 = textFieldNota2;
+	}
+
+	public static JTextField getTextFieldNota3() {
+		return textFieldNota3;
+	}
+
+	public static void setTextFieldNota3(JTextField textFieldNota3) {
+		NotaForm.textFieldNota3 = textFieldNota3;
 	}
 }

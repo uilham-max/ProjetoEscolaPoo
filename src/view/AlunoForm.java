@@ -175,10 +175,10 @@ public class AlunoForm {
 				textFieldNome.setText("Uilham de Oliveira");
 				textFieldIdade.setText("18");
 				textFieldCpf.setText("00505131092");
-				textFieldDataMat.setText("02/03/2023");
+				textFieldDataMat.setText("04/03/2023");
 				textFieldEscola.setText("Jose de Abreu");
 				textFieldSemestre.setText("2");
-				textFieldNumeroDedisciplinas.setText("6");
+				textFieldNumeroDedisciplinas.setText("1");
 			
 				ControllerAluno.criaAluno();
 			}

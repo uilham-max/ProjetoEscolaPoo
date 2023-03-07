@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Professor extends Pessoa implements CalculaMedia {
 	
-	private String inscMatricula;
-	private String area;
-	private ArrayList <Disciplina> disciplina;
+	private String inscMatricula = null;
+	private String area = null;
+	private ArrayList <Disciplina> disciplina = null;
 	
 	public Professor() {
 		super();

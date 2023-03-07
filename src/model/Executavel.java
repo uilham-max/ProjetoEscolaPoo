@@ -131,8 +131,8 @@ public class Executavel {
 		aluno1.getDisciplina().get(2).setNota(not1);
 		aluno1.getDisciplina().get(3).setNota(not4);
 		aluno1.getDisciplina().get(4).setNota(not1);
-		
-		
+//		
+//		
 		System.out.println(aluno1.toString());
 		
 		
@@ -165,7 +165,7 @@ public class Executavel {
 		aluno3.getDisciplina().get(2).setNota(not5);
 		aluno3.getDisciplina().get(3).setNota(not3);
 		aluno3.getDisciplina().get(4).setNota(not5);
-		
+//		
 		
 		System.out.println(aluno3.toString());
 

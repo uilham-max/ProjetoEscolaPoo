@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Disciplina {
 	
-	private String nomeDisciplina;
-	private int quantidadeDeNotas;
-	private ArrayList<Nota> nota;
+	private String nomeDisciplina = null;
+	private int quantidadeDeNotas =0;
+	private ArrayList<Nota> nota = null;
 	
 	public Disciplina() {
 		

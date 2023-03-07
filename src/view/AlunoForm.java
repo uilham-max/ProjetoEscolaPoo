@@ -28,13 +28,11 @@ public class AlunoForm {
 	private static JTextField textFieldDataMat;
 	private static JTextField textFieldEscola;
 	private static JTextField textFieldSemestre;
-	private static JTextField textFieldNumeroDedisciplinas;
 	private JLabel lblIdade;
 	private JLabel lblCpf;
 	private JLabel lblDataMatricula;
 	private JLabel lblEscola;
 	private JLabel lblSemestre;
-	private JLabel lblNDeDisciplinas;
 	
 
 	
@@ -152,19 +150,6 @@ public class AlunoForm {
 		textFieldSemestre.setBounds(232, 249, 200, 30);
 		frmCadastro.getContentPane().add(textFieldSemestre);
 		
-
-		
-		lblNDeDisciplinas = new JLabel("N\u00BA de Disciplinas:");
-		lblNDeDisciplinas.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNDeDisciplinas.setBounds(44, 288, 178, 31);
-		frmCadastro.getContentPane().add(lblNDeDisciplinas);
-		
-		textFieldNumeroDedisciplinas = new JTextField();
-		textFieldNumeroDedisciplinas.setFont(new Font("Dialog", Font.BOLD, 15));
-		textFieldNumeroDedisciplinas.setColumns(10);
-		textFieldNumeroDedisciplinas.setBounds(232, 289, 200, 30);
-		frmCadastro.getContentPane().add(textFieldNumeroDedisciplinas);
-		
 		
 		
 		JButton botaoProximo = new JButton("Pr\u00F3ximo");
@@ -175,16 +160,15 @@ public class AlunoForm {
 				textFieldNome.setText("Uilham de Oliveira");
 				textFieldIdade.setText("18");
 				textFieldCpf.setText("00505131092");
-				textFieldDataMat.setText("04/03/2023");
+				textFieldDataMat.setText("07/03/2023");
 				textFieldEscola.setText("Jose de Abreu");
 				textFieldSemestre.setText("2");
-				textFieldNumeroDedisciplinas.setText("1");
 			
 				ControllerAluno.criaAluno();
 			}
 		});
 		botaoProximo.setFont(new Font("Tahoma", Font.BOLD, 15));
-		botaoProximo.setBounds(258, 329, 150, 40);
+		botaoProximo.setBounds(258, 300, 150, 40);
 		frmCadastro.getContentPane().add(botaoProximo);
 		frmCadastro.setTitle("Cadastro de aluno");
 		frmCadastro.setBounds(100, 100, 636, 440);
@@ -207,13 +191,6 @@ public class AlunoForm {
 		AlunoForm.frmCadastro = frmCadastro;
 	}
 
-	public static JTextField getTextFieldNumeroDedisciplinas() {
-		return textFieldNumeroDedisciplinas;
-	}
-
-	public static void setTextFieldNumeroDedisciplinas(JTextField textFieldNumeroDedisciplinas) {
-		AlunoForm.textFieldNumeroDedisciplinas = textFieldNumeroDedisciplinas;
-	}
 
 	public static JTextField getTextFieldIdade() {
 		return textFieldIdade;

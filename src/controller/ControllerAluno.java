@@ -17,7 +17,7 @@ public class ControllerAluno  {
 	
 	private static Nota notas;
 	private static ArrayList<Nota> ListaDeNotas = new ArrayList<Nota>();
-	private static float[] arrayDeNotas = new float[3];
+//	private static float[] 
 	
 	
 	// metodo que cria o Aluno
@@ -34,7 +34,7 @@ public class ControllerAluno  {
 				&& aluno.getSemestreMatricula() != -1 && aluno.getNumeroDeDisciplinas() != -1 && aluno.getDataMatricula() != null) {
 			System.out.println("chamando criaDisciplina...");
 			AlunoForm.getFrmCadastro().dispose();
-			chamaDisciplina();
+			DisciplinaForm.main(null);
 			System.out.println("saindo do if do criaAluno...");
 		}		
 	}
@@ -45,15 +45,15 @@ public class ControllerAluno  {
 		System.out.println("entrando no criaDisciplina...");
 			disciplina = new Disciplina();
 			notas = new Nota();
+			float[] arrayDeNotas = new float[3];
 			disciplina.setNomeDisciplina(validaDisciplina((DisciplinaForm.getTextFieldNomeDisciplina().getText())) ) ;
 			arrayDeNotas[0] = Float.valueOf(validaInteiroMenorQueDez(DisciplinaForm.getTextFieldNota1().getText()));
 			arrayDeNotas[1] = Float.valueOf(validaInteiroMenorQueDez(DisciplinaForm.getTextFieldNota2().getText()));
 			arrayDeNotas[2] = Float.valueOf(validaInteiroMenorQueDez(DisciplinaForm.getTextFieldNota3().getText()));
 			notas.setNota(arrayDeNotas);
-			ListaDeNotas.add(notas);
-			disciplina.setNota(ListaDeNotas);
+			disciplina.getNota().add(notas);
 			System.out.println("adicionando disciplina na lista...");
-			listaDeDisciplina.add(disciplina);
+			aluno.getDisciplina().add(disciplina);
 			chamaDisciplina();
 	}
 
@@ -61,9 +61,8 @@ public class ControllerAluno  {
 	
 	public static void fim() {
 		System.out.println("Criando aluno");
-		aluno.setDisciplina(listaDeDisciplina);
 		alunos.add(aluno);
-		System.out.println(aluno.toString());
+		System.out.println(alunos.toString());
 	}
 
 	

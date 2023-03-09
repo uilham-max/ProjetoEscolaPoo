@@ -9,9 +9,9 @@ public class Aluno extends Pessoa implements CalculaMedia{
 	private String dataMatricula;
 	
 
-	private String nomeEscola = null ;
+	private String nomeEscola;
 	private int semestreMatricula = 0;
-	private ArrayList<Disciplina> disciplina = null;
+	private ArrayList<Disciplina> disciplina = new ArrayList<Disciplina>();
 	private int numeroDeDisciplinas = 0;
 	
 

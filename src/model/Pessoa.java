@@ -2,9 +2,9 @@ package model;
 
 public abstract class Pessoa {
 
-	protected String nome = null;
-	protected int idade =0;
-	protected long numCPF=0;
+	protected String nome = "Nome";
+	protected int idade = 0;
+	protected long numCPF= 0;
 	
 	public Pessoa() {
 	}

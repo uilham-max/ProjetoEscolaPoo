@@ -54,7 +54,7 @@ public class ControllerAluno  {
 			disciplina.getNota().add(notas);
 			System.out.println("adicionando disciplina na lista...");
 			aluno.getDisciplina().add(disciplina);
-			chamaDisciplina();
+			chamaTelaDisciplina();
 	}
 
 //		alunos.get(0).getDisciplina().get(0).getNota().get(0).getMediaNotas();
@@ -63,11 +63,20 @@ public class ControllerAluno  {
 		System.out.println("Criando aluno");
 		alunos.add(aluno);
 		System.out.println(alunos.toString());
+		chamaTelaMostrarDados();
 	}
 
 	
 	
-	public static void chamaDisciplina() {
+	
+	
+	public static void chamaTelaMostrarDados() {
+		MostrarDados.main(null);
+//		DisciplinaForm.getFrame().dispose();
+	}
+	
+	
+	public static void chamaTelaDisciplina() {
 		DisciplinaForm.main(null);
 //		DisciplinaForm.getFrame().dispose();
 	}

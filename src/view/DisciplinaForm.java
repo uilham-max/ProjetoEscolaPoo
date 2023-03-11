@@ -67,20 +67,7 @@ public class DisciplinaForm {
 		textFieldNomeDisciplina.setBounds(257, 38, 379, 30);
 		frame.getContentPane().add(textFieldNomeDisciplina);
 		
-		JButton botaoProximo = new JButton("Pr\u00F3ximo");
-		botaoProximo.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-//				textFieldNomeDisciplina.setText("POO");
-				
-				ControllerAluno.fim();
-				
-			}
-		});
-		botaoProximo.setFont(new Font("Tahoma", Font.BOLD, 15));
-		botaoProximo.setBounds(373, 224, 171, 40);
-		frame.getContentPane().add(botaoProximo);
+		
 		
 		JLabel lblNota1 = new JLabel("Nota 1:");
 		lblNota1.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -115,6 +102,8 @@ public class DisciplinaForm {
 		textFieldNota3.setBounds(257, 161, 72, 30);
 		frame.getContentPane().add(textFieldNota3);
 		
+		
+		
 		JButton botaoSalvar = new JButton("Salvar");
 		botaoSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -122,14 +111,29 @@ public class DisciplinaForm {
 				frame.dispose();
 				ControllerAluno.criaDisciplina();
 				
-				
-				
 			}
 		});
 		botaoSalvar.setFont(new Font("Tahoma", Font.BOLD, 15));
 		botaoSalvar.setBounds(158, 224, 171, 40);
 		frame.getContentPane().add(botaoSalvar);
+		
+		
+		JButton botaoTerminar = new JButton("Terminar");
+		botaoTerminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+//				textFieldNomeDisciplina.setText("POO");
+				frame.dispose();
+				ControllerAluno.fim();
+				
+			}
+		});
+		botaoTerminar.setFont(new Font("Tahoma", Font.BOLD, 15));
+		botaoTerminar.setBounds(373, 224, 171, 40);
+		frame.getContentPane().add(botaoTerminar);
 	}
+	
 
 	public static JFrame getFrame() {
 		return frame;

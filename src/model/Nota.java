@@ -4,18 +4,18 @@ import java.util.Arrays;
 
 public class Nota {
 	
-	private float nota[] = new float[3];
+	private float[] notas = {0,0,0};
 	
 	public Nota() {
 		
 	}
 	
 	public Nota(float nota[]) {
-		this.nota = nota;
+		this.notas = nota;
 	}
 
 	public float getSomaNotas() {
-		return (nota[0] + nota[1] + nota[2]);
+		return (notas[0] + notas[1] + notas[2]);
 	}
 	
 	public float getMediaNotas() {
@@ -23,16 +23,16 @@ public class Nota {
 	}
 	
 	public void setNota(float[] nota) {
-		this.nota = nota;
+		this.notas = nota;
 	}
 
 	public float[] getNota() {
-		return nota;
+		return notas;
 	}
 
 	@Override
 	public String toString() {
-		return "Notas = " + Arrays.toString(nota);
+		return "Notas = " + Arrays.toString(notas);
 	}
 	
 	

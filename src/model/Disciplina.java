@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Disciplina {
 	
-	private String nomeDisciplina;
-	private int quantidadeDeNotas =0;
+	private String nomeDisciplina = "Disciplina";
+	private int quantidadeDeNotas = 0;
 	private ArrayList<Nota> nota = new ArrayList<Nota>();
 	
 	public Disciplina() {

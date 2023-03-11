@@ -160,7 +160,7 @@ public class AlunoForm {
 				textFieldNome.setText("Uilham de Oliveira");
 				textFieldIdade.setText("18");
 				textFieldCpf.setText("00505131092");
-				textFieldDataMat.setText("08/03/2023");
+				textFieldDataMat.setText("09/03/2023");
 				textFieldEscola.setText("Jose de Abreu");
 				textFieldSemestre.setText("2");
 			

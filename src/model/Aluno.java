@@ -1,8 +1,12 @@
 package model;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Aluno extends Pessoa implements CalculaMedia{
 
@@ -11,7 +15,7 @@ public class Aluno extends Pessoa implements CalculaMedia{
 
 	private String nomeEscola = "Nome Escola";
 	private int semestreMatricula = 0;
-	private ArrayList<Disciplina> disciplina = new ArrayList<Disciplina>();
+	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	private int numeroDeDisciplinas = 0;
 	
 
@@ -25,19 +29,28 @@ public class Aluno extends Pessoa implements CalculaMedia{
 		this.dataMatricula = dataMatricula;
 		this.nomeEscola = nomeEscola;
 		this.semestreMatricula = semestreMatricula;
-		this.disciplina = disciplina;
+		this.disciplinas = disciplina;
 		this.numeroDeDisciplinas = numeroDeDisciplinas;
 	}
 
 
 	@Override
 	 public float calculaMediaGeral() {
-		// TODO Auto-generated method stub
-		float mediaGeral = 0;
-		for(int i = 0; i < disciplina.size(); i++) {
-			mediaGeral += disciplina.get(i).getMediaDisciplina();
+		
+		float soma = 0;
+		for(int i = 0; i < disciplinas.size(); i++) {
+			
+			soma += (disciplinas.get(i).getMediaDisciplina()) ;
 		}
-		return mediaGeral/this.disciplina.size();
+		float mediaGeral = soma/this.disciplinas.size();
+		
+		DecimalFormatSymbols dfs = new DecimalFormatSymbols();
+		dfs.setDecimalSeparator('.');
+		
+		NumberFormat df = new DecimalFormat("#.#", dfs);
+		String mediaGeralFormatada = df.format(mediaGeral);
+		
+		return Float.parseFloat(mediaGeralFormatada);
 	}
 
 	@Override
@@ -89,12 +102,15 @@ public class Aluno extends Pessoa implements CalculaMedia{
 		this.semestreMatricula = semestreMatricula;
 	}
 
-	public ArrayList<Disciplina> getDisciplina() {
-		return disciplina;
+	public List<Disciplina> getDisciplina() {
+		return disciplinas;
 	}
 
-	public void setDisciplina(ArrayList<Disciplina> disciplina) {
-		this.disciplina = disciplina;
+	public void setDisciplina(List<Disciplina> disciplina) {
+            if(this.disciplinas.isEmpty()) {
+                this.disciplinas = new ArrayList<>();
+            }
+            this.disciplinas = disciplina;
 	}
 
 	public int getNumeroDeDisciplinas() {
@@ -107,11 +123,16 @@ public class Aluno extends Pessoa implements CalculaMedia{
 
 	@Override
 	public String toString() {
-		return "\n----------\n"+"\nnome=" + nome +  "\nidade=" + idade + "\nCPF=" + numCPF + "\nNumero de discip." + numeroDeDisciplinas+ 
-				"\ndataMatricula=" + /*getDataFormatada(dataMatricula)*/dataMatricula + "\nnomeEscola=" + nomeEscola + 
-				"\nsemestreMatricula=" + semestreMatricula +""+ disciplina +
-				"\nmedia geral = " + calculaMediaGeral() +
-				"\nsituacao=" + getSituacao();
+		return 		"\n*** Aluno ***"
+					+"\n\nNome------------: " + nome 
+					+"\nIdade-----------: " + idade
+					+"\nCPF-------------: " + numCPF
+					+"\nData Matricula--: " + dataMatricula
+					+"\nEscola----------: " + nomeEscola
+					+"\nSemestre--------: " + semestreMatricula
+					+"\n\n*** Disciplinas ***" +disciplinas
+					+"\n\nMedia geral-----: " + calculaMediaGeral()
+					+"\nSituacao--------: " + getSituacao();
 		
 	}
 	

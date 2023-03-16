@@ -1,20 +1,33 @@
 package view;
 
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JTextArea;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+import controller.ControllerAluno;
+import controller.ControllerLista;
+import model.Aluno;
+import model.Disciplina;
+import model.Professor;
+
+import javax.swing.JTextArea;
 
 public class MostrarDados {
 
 	private static JFrame frame;
+	private JTable table;
+	public static JComboBox comboBoxAluno;
+	public static JComboBox comboBoxProfessor;
+	public static JTextArea textAreaMostrarDados;
 
 	/**
 	 * Launch the application.
@@ -48,27 +61,52 @@ public class MostrarDados {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JComboBox comboBoxAlunos = new JComboBox();
-		comboBoxAlunos.addActionListener(new ActionListener() {
+		
+		//quando clicar na combo box esse codigo que roda
+		//---------------------------ALUNOS-------------------------------
+		comboBoxAluno = new JComboBox();
+		comboBoxAluno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(comboBoxAluno.getSelectedItem() != "Alunos") {
+					comboBoxProfessor .setSelectedIndex(0);
+					//chamar o método mostrarItemSelecionadoAluno na ControllerLista passando a combobox com o item selecionado
+					ControllerLista.mostrarItemSelecionadoAluno(comboBoxAluno.getSelectedIndex());
+				}
 			}
 		});
-		comboBoxAlunos.setBounds(73, 92, 251, 78);
-		frame.getContentPane().add(comboBoxAlunos);
+		comboBoxAluno.setBounds(159, 150, 182, 36);
+		frame.getContentPane().add(comboBoxAluno);
 		
-		JLabel lblNewLabelAlunos = new JLabel("Alunos");
-		lblNewLabelAlunos.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabelAlunos.setBounds(165, 46, 68, 36);
-		frame.getContentPane().add(lblNewLabelAlunos);
+		// criar uma comboBox em ControllerLista passando a comboBoxAluno
+		ControllerLista.criarComboBoxAluno(comboBoxAluno);
 		
-		JLabel lblProfessores = new JLabel("Professores");
+		//quando clicar na combo box esse codigo que roda
+		//-------------------------PROFESSORES--------------------------------------------
+		
+		comboBoxProfessor = new JComboBox();
+		comboBoxProfessor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(comboBoxProfessor.getSelectedItem() != "Professores") {
+					comboBoxAluno.setSelectedIndex(0);
+					ControllerLista.mostrarItemSelecionadoProfessor(comboBoxProfessor.getSelectedIndex());
+				}
+			}
+		});
+		comboBoxProfessor.setBounds(159, 200, 182, 36);
+		frame.getContentPane().add(comboBoxProfessor);
+
+		ControllerLista.criarComboBoxProfessor(comboBoxProfessor);
+		
+		
+		JLabel lblProfessores = new JLabel("Professores:");
 		lblProfessores.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblProfessores.setBounds(545, 46, 118, 36);
+		lblProfessores.setBounds(23, 196, 125, 36);
 		frame.getContentPane().add(lblProfessores);
 		
-		JComboBox comboBoxProfessores = new JComboBox();
-		comboBoxProfessores.setBounds(472, 92, 251, 78);
-		frame.getContentPane().add(comboBoxProfessores);
+		JLabel lblNewLabelAlunos = new JLabel("Alunos:");
+		lblNewLabelAlunos.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabelAlunos.setBounds(73, 150, 75, 36);
+		frame.getContentPane().add(lblNewLabelAlunos);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
@@ -78,12 +116,22 @@ public class MostrarDados {
 			}
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnVoltar.setBounds(310, 426, 150, 40);
+		btnVoltar.setBounds(174, 267, 150, 40);
 		frame.getContentPane().add(btnVoltar);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(76, 193, 647, 217);
-		frame.getContentPane().add(textArea);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(403, 56, 320, 414);
+		frame.getContentPane().add(scrollPane);
+		
+		textAreaMostrarDados = new JTextArea();
+		textAreaMostrarDados.setEditable(false);
+		scrollPane.setViewportView(textAreaMostrarDados);
+		
+		JLabel lblNewLabelInformações = new JLabel("Informa\u00E7\u00F5es");
+		lblNewLabelInformações.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabelInformações.setBounds(485, 10, 155, 36);
+		frame.getContentPane().add(lblNewLabelInformações);
+		
 	}
 
 	public static JFrame getFrame() {
@@ -92,5 +140,14 @@ public class MostrarDados {
 
 	public static void setFrame(JFrame frame) {
 		MostrarDados.frame = frame;
+	}
+
+
+	public JTable getTable() {
+		return table;
+	}
+
+	public void setTable(JTable table) {
+		this.table = table;
 	}
 }

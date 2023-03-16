@@ -1,14 +1,14 @@
 package view;
 
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
 public class Inicio {
 
@@ -42,7 +42,7 @@ public class Inicio {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 278, 290);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -55,12 +55,18 @@ public class Inicio {
 			}
 		});
 		btnCadastrarAluno.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnCadastrarAluno.setBounds(116, 58, 200, 35);
+		btnCadastrarAluno.setBounds(28, 60, 200, 35);
 		frame.getContentPane().add(btnCadastrarAluno);
 		
 		JButton btnCadastrarProfessor = new JButton("Cadastrar professor");
+		btnCadastrarProfessor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ProfessorForm.main(null);
+				Inicio.getFrame().dispose();
+			}
+		});
 		btnCadastrarProfessor.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnCadastrarProfessor.setBounds(116, 103, 200, 35);
+		btnCadastrarProfessor.setBounds(28, 105, 200, 35);
 		frame.getContentPane().add(btnCadastrarProfessor);
 		
 		JButton btnMostrarDados = new JButton("Mostrar dados");
@@ -71,7 +77,7 @@ public class Inicio {
 			}
 		});
 		btnMostrarDados.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnMostrarDados.setBounds(116, 148, 200, 35);
+		btnMostrarDados.setBounds(28, 150, 200, 35);
 		frame.getContentPane().add(btnMostrarDados);
 	}
 

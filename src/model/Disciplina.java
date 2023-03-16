@@ -1,60 +1,78 @@
 package model;
 
-import java.util.ArrayList;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.util.Arrays;
+
 
 public class Disciplina {
 	
-	private String nomeDisciplina = "Disciplina";
-	private int quantidadeDeNotas = 0;
-	private ArrayList<Nota> nota = new ArrayList<Nota>();
-	
-	public Disciplina() {
-		
-	}
+    private String nomeDisciplina = "Disciplina";
+    private float[] notas = {-1,-1,-1};
 
-	public Disciplina(String nomeDisciplina,int quantidadeDeNotas, ArrayList<Nota> nota) {
-		super();
+    public Disciplina() {
 
-		this.nomeDisciplina = nomeDisciplina;
-		this.quantidadeDeNotas = quantidadeDeNotas;
-		this.nota = nota;
-	}
+    }
+    
+    NumberFormat numeroFormatado = new DecimalFormat("0.0");
 
-	public float getMediaDisciplina() {
-		float media = 0;
-		for(int i = 0; i < this.nota.size(); i++) {
-			media += this.nota.get(i).getMediaNotas();
-		}
-		return media/this.nota.size();
-	}
+    public Disciplina(String nomeDisciplina, float[] notas) {
+            super();
 
-	public String getNomeDisciplina() {
-		return nomeDisciplina;
-	}
+            this.nomeDisciplina = nomeDisciplina;
+            this.notas = notas;
+    }
+    
+    public Float getMediaDisciplina() {
+            float soma = 0;
+            for(int i = 0; i < this.notas.length; i++) {
+                    soma += this.notas[i];
+            }
+            float media = soma/this.notas.length;
+            
+            DecimalFormatSymbols dfs = new DecimalFormatSymbols();
+            dfs.setDecimalSeparator('.');
+            
+            NumberFormat df = new DecimalFormat("0.0", dfs);
+            String numeroFormatado = df.format(media);
+            
+            return  Float.parseFloat(numeroFormatado);
+    }
+    
+    
+    
+    public String getNomeDisciplina() {
+            return nomeDisciplina;
+    }
 
-	public void setNomeDisciplina(String nomeDisciplina) {
-		this.nomeDisciplina = nomeDisciplina;
-	}
+    public void setNomeDisciplina(String nomeDisciplina) {
+            this.nomeDisciplina = nomeDisciplina;
+    }
 
-	public ArrayList<Nota> getNota() {
-		return nota;
-	}
+    public float[] getNotas() {
+        return notas;
+    }
 
-	public void setNota(ArrayList<Nota> nota) {
-		this.nota = nota;
-	}
-	
-	public int getQuantidadeDeNotas() {
-		return quantidadeDeNotas;
-	}
+    public void setNotas(float[] notas) {
+        this.notas = notas;
+    }
 
-	public void setQuantidadeDeNotas(int quantidadeDeNotas) {
-		this.quantidadeDeNotas = quantidadeDeNotas;
-	}
 
-	@Override
-	public String toString() {
-		return "\nDisciplina = " + nomeDisciplina + " = " + nota + " media disc = " + getMediaDisciplina();
-	}	
 
+    public float getNotaPorIndice(int indice) {
+        return this.notas[indice];
+    }
+
+    @Override
+    public String toString() {
+        return      "\n\nDisciplina--: " +nomeDisciplina
+//        			+"\nNotas--------: " +Arrays.toString(notas)
+        			+"\nNota 1-------: " +notas[0]
+        			+"\nNota 2-------: " +notas[1]
+        			+"\nNota 3-------: " +notas[2]
+        			+"\nMedia -------: " +getMediaDisciplina();
+    }
+
+    
 }

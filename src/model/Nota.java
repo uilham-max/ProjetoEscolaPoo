@@ -22,13 +22,15 @@ public class Nota {
 		return (getSomaNotas() / 3);
 	}
 	
-	public void setNota(float[] nota) {
+	public void setNotas(float[] nota) {
 		this.notas = nota;
 	}
 
-	public float[] getNota() {
+	public float[] getNotas() {
 		return notas;
 	}
+        
+
 
 	@Override
 	public String toString() {

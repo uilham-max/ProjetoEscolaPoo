@@ -1,23 +1,15 @@
 package view;
-import model.*;
-
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import java.awt.Font;
-import java.util.Date;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import controller.ControllerAluno;
-
-import javax.swing.JButton;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.JTabbedPane;
-import javax.swing.JPanel;
 
 public class AlunoForm {
 
@@ -76,12 +68,12 @@ public class AlunoForm {
 		
 		JLabel lblNome = new JLabel("Nome:");								
 		lblNome.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNome.setBounds(156, 48, 66, 31);
+		lblNome.setBounds(116, 26, 66, 31);
 		frmCadastro.getContentPane().add(lblNome);
 		
 		textFieldNome = new JTextField();								
 		textFieldNome.setFont(new Font("Dialog", Font.BOLD, 15));
-		textFieldNome.setBounds(232, 48, 200, 30);
+		textFieldNome.setBounds(192, 26, 321, 30);
 		frmCadastro.getContentPane().add(textFieldNome);
 		textFieldNome.setColumns(10);
 		
@@ -89,65 +81,65 @@ public class AlunoForm {
 		
 		lblIdade = new JLabel("Idade:");
 		lblIdade.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblIdade.setBounds(156, 87, 66, 31);
+		lblIdade.setBounds(116, 65, 66, 31);
 		frmCadastro.getContentPane().add(lblIdade);
 		
 		textFieldIdade = new JTextField();
 		textFieldIdade.setFont(new Font("Dialog", Font.BOLD, 15));
 		textFieldIdade.setColumns(10);
-		textFieldIdade.setBounds(232, 88, 200, 30);
+		textFieldIdade.setBounds(192, 66, 321, 30);
 		frmCadastro.getContentPane().add(textFieldIdade);
 		
 		
 		
 		lblCpf = new JLabel("CPF:");
 		lblCpf.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblCpf.setBounds(176, 127, 46, 31);
+		lblCpf.setBounds(136, 105, 46, 31);
 		frmCadastro.getContentPane().add(lblCpf);
 		
 		textFieldCpf = new JTextField();
 		textFieldCpf.setFont(new Font("Dialog", Font.BOLD, 15));
 		textFieldCpf.setColumns(10);
-		textFieldCpf.setBounds(232, 128, 200, 30);
+		textFieldCpf.setBounds(192, 106, 321, 30);
 		frmCadastro.getContentPane().add(textFieldCpf);
 		
 		
 		
 		lblDataMatricula = new JLabel("Data Mat:");
 		lblDataMatricula.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblDataMatricula.setBounds(124, 168, 98, 31);
+		lblDataMatricula.setBounds(84, 146, 98, 31);
 		frmCadastro.getContentPane().add(lblDataMatricula);
 		
 		textFieldDataMat = new JTextField();
 		textFieldDataMat.setFont(new Font("Dialog", Font.BOLD, 15));
 		textFieldDataMat.setColumns(10);
-		textFieldDataMat.setBounds(232, 169, 200, 30);
+		textFieldDataMat.setBounds(192, 146, 321, 30);
 		frmCadastro.getContentPane().add(textFieldDataMat);
 
 		
 		
 		lblEscola = new JLabel("Escola:");
 		lblEscola.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblEscola.setBounds(152, 209, 70, 31);
+		lblEscola.setBounds(112, 187, 70, 31);
 		frmCadastro.getContentPane().add(lblEscola);
 		
 		textFieldEscola = new JTextField();
 		textFieldEscola.setFont(new Font("Dialog", Font.BOLD, 15));
 		textFieldEscola.setColumns(10);
-		textFieldEscola.setBounds(232, 209, 200, 30);
+		textFieldEscola.setBounds(192, 187, 321, 30);
 		frmCadastro.getContentPane().add(textFieldEscola);
 
 		
 		
 		lblSemestre = new JLabel("Semestre:");
 		lblSemestre.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblSemestre.setBounds(120, 248, 102, 31);
+		lblSemestre.setBounds(80, 228, 102, 31);
 		frmCadastro.getContentPane().add(lblSemestre);
 		
 		textFieldSemestre = new JTextField();
 		textFieldSemestre.setFont(new Font("Dialog", Font.BOLD, 15));
 		textFieldSemestre.setColumns(10);
-		textFieldSemestre.setBounds(232, 249, 200, 30);
+		textFieldSemestre.setBounds(192, 227, 321, 30);
 		frmCadastro.getContentPane().add(textFieldSemestre);
 		
 		
@@ -157,10 +149,10 @@ public class AlunoForm {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				textFieldNome.setText("Uilham de Oliveira");
+//				textFieldNome.setText("Uilham de Oliveira");
 				textFieldIdade.setText("18");
 				textFieldCpf.setText("00505131092");
-				textFieldDataMat.setText("09/03/2023");
+				textFieldDataMat.setText("15/03/2023");
 				textFieldEscola.setText("Jose de Abreu");
 				textFieldSemestre.setText("2");
 			
@@ -168,10 +160,10 @@ public class AlunoForm {
 			}
 		});
 		botaoProximo.setFont(new Font("Tahoma", Font.BOLD, 15));
-		botaoProximo.setBounds(258, 300, 150, 40);
+		botaoProximo.setBounds(243, 283, 150, 40);
 		frmCadastro.getContentPane().add(botaoProximo);
 		frmCadastro.setTitle("Cadastro de aluno");
-		frmCadastro.setBounds(100, 100, 636, 440);
+		frmCadastro.setBounds(100, 100, 648, 386);
 		frmCadastro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
@@ -231,8 +223,6 @@ public class AlunoForm {
 	public static void setTextFieldSemestre(JTextField textFieldSemestre) {
 		AlunoForm.textFieldSemestre = textFieldSemestre;
 	}
-
-	
 }
 
 

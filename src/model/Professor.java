@@ -1,22 +1,29 @@
 package model;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Professor extends Pessoa implements CalculaMedia {
 	
-	private String inscMatricula = null;
-	private String area = null;
-	private ArrayList <Disciplina> disciplina = null;
+	private String nomeEscola = "Nome Escola";
+	private String inscMatricula = "matricula";
+	private String area = "Area";
+	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
+	
 	
 	public Professor() {
 		super();
 	}
 
-	public Professor(String nome, int idade, long numCPF, String inscMatricula, String area, ArrayList<Disciplina> disciplina) {
+	public Professor(String nome, int idade, long numCPF, String nomeEscola, String inscMatricula, String area, List<Disciplina> disciplinas) {
 		super(nome, idade, numCPF);
+		this.nomeEscola = nomeEscola;
 		this.inscMatricula = inscMatricula;
 		this.area = area;
-		this.disciplina = disciplina;
+		this.disciplinas = disciplinas;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -24,11 +31,20 @@ public class Professor extends Pessoa implements CalculaMedia {
 	@Override
 	 public float calculaMediaGeral() {
 		// TODO Auto-generated method stub
-		float mediaGeral = 0;
-		for(int i = 0; i < disciplina.size(); i++) {
-			mediaGeral += disciplina.get(i).getMediaDisciplina();
+		float soma = 0;
+		for(int i = 0; i < disciplinas.size(); i++) {
+			soma += disciplinas.get(i).getMediaDisciplina();
 		}
-		return mediaGeral/this.disciplina.size();
+		
+		float mediaGeral = soma/this.disciplinas.size();
+		
+		DecimalFormatSymbols dfs = new DecimalFormatSymbols();
+		dfs.setDecimalSeparator('.');
+		
+		NumberFormat df = new DecimalFormat("0.0", dfs);
+		String mediaGeralFormatada = df.format(mediaGeral);
+		
+		return Float.parseFloat(mediaGeralFormatada);
 	}
 
 	@Override
@@ -39,12 +55,7 @@ public class Professor extends Pessoa implements CalculaMedia {
 		}
 		return false;
 	}	
-
 	
-	@Override
-	public String toString() {
-		return "\n\nProfessor \n[" + "\\nnome=" + nome +  "\nidade=" + idade + "\nCPF=" + numCPF + "\ninscMatricula=" + inscMatricula + ", \narea=" + area + ", \ndisciplina=" + disciplina + "]";
-	}
 
 	public String getInscMatricula() {
 		return inscMatricula;
@@ -62,13 +73,35 @@ public class Professor extends Pessoa implements CalculaMedia {
 		this.area = area;
 	}
 
-	public ArrayList<Disciplina> getDisciplina() {
-		return disciplina;
+	public List<Disciplina> getDisciplina() {
+		return disciplinas;
 	}
 
-	public void setDisciplina(ArrayList<Disciplina> disciplina) {
-		this.disciplina = disciplina;
+	public void setDisciplina(List<Disciplina> disciplina) {
+		if(this.disciplinas.isEmpty()) {
+            this.disciplinas = new ArrayList<>();
+        }
+        this.disciplinas = disciplina;
 	}
 	
+	public String getNomeEscola() {
+		return nomeEscola;
+	}
+
+	public void setNomeEscola(String nomeEscola) {
+		this.nomeEscola = nomeEscola;
+	}
+
+	@Override
+	public String toString() {
+		return "\n*** Professor ***" 
+				+"\n\nNome------:" + nome 
+				+"\nIidade------:" + idade 
+				+"\nCPF---------:" + numCPF 
+				+"\nMatricula---:" + inscMatricula 
+				+"\nArea--------:" + area 
+				+"\n\n*** Disciplinas ***" +disciplinas 
+				+"\nMedia geral-: " + calculaMediaGeral();
+	}
 
 }

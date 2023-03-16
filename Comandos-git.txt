@@ -18,9 +18,9 @@ git remote add origin https://github.com/uilham-max/ProjetoEscolaPoo.git
 
 git push -u origin main
 
-------------------------------------
+-----------------------------------------------------------------------
 
-git add . 				-> pré stage
-git status 				-> visualiza arquivos no pré stage
-git commit -m "mensagem" 	-> empurra para o stage
-git push -u origin main 	-> envia do stage para nuvem
+git add . -----------------> pré stage
+git status  ---------------> visualiza arquivos no pré stage
+git commit -m "mensagem" --> empurra para o stage
+git push -u origin main ---> envia do stage para nuvem

@@ -1,16 +1,16 @@
 git --version -> mostra a versao do git
 
-git init -> cria um repositorio git vazio
+git init -> cria um repositorio git vazio na sua maquina
 
-git add . -> envia todos os arquivos da pasta para o stage
+git add . -> envia todos os arquivos da pasta para o pré stage
 
-git status -> mostra os arquivos que estao no stage
+git status -> mostra os arquivos que estao no pré stage
 
 git config --global user.email uilhamgoncalves@gmail.com
 
 git config --glogal user.name uilham-max
 
-git commit -m "primeiro commit"
+git commit -m "primeiro commit" -> envia para o stage
 
 git branch -M "main"
 

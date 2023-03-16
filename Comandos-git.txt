@@ -24,3 +24,5 @@ git add . 				-> pré stage
 git status 				-> visualiza arquivos no pré stage
 git commit -m "mensagem" 	-> empurra para o stage
 git push -u origin main 	-> envia do stage para nuvem
+
+Exemplo do Pedro.

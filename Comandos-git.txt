@@ -14,7 +14,7 @@ git commit -m "primeiro commit"
 
 git branch -M "main"
 
-git remote add origin httphttps://github.com/uilham-max/ProjetoEscolaPoo.git
+git remote add origin https://github.com/uilham-max/ProjetoEscolaPoo.git
 
 git push -u origin main
 
